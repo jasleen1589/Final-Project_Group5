@@ -53,7 +53,8 @@
     <div class="ml-container" >
         <form action="{{ url_for('predict')}}" method="POST">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
                     <br>
                     <label for="age" >Age</label>
                     <input type="text" id="age" name="age"  placeholder="Your age.."><br>
@@ -68,8 +69,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                   
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
+                    <br>
             <label for="cp">Chest Pain Type</label>
             <select id="cp" name="cp">
                 <option selected>----select option----</option>
@@ -87,8 +89,9 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                   
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
+                    <br>
                     <label for="chol">Serum Cholesterol</label>
                     <input type="text" id="chol" name="chol" placeholder="A number in range [126-564] mg/dl">
         
@@ -105,8 +108,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                   
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
+                    <br>
                     <label for="restecg">Resting ECG Results</label>
                     <select id="restecg" name="restecg">
                         <option selected>----select option----</option>
@@ -127,8 +131,9 @@
           
            
             <div class="row">
-                <div class="col-md-6">
-                   
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
+                    <br>
                     <label for="exang">Exercise-induced Angina</label>
                     <select id="exang" name="exang">
                         <option selected>----select option----</option>
@@ -147,8 +152,9 @@
           
 
             <div class="row">
-                <div class="col-md-6">
-                   
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
+                    <br>
                     <label for="slope">slope of the peak exercise ST segment</label>
                     <select id="slope" name="slope">
                         <option selected>----select option----</option>
@@ -168,7 +174,9 @@
             
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-mod-1"></div>               
+                <div class="col-md-5">
+                    <br>
                    
                     <label for="thal">Thalassemia</label>
             <select id="thal" name="thal">
@@ -179,16 +187,9 @@
             </select><br>
                 </div>
                 <div class="col-md-6">
-                    
+                    <input type="submit"  class="btn btn-primary" value="Predict">
                 </div>
             </div>
-
-            
-            
-
-           
-
-            <input type="submit"  class="btn btn-primary" value="Predict">
         </form>
     </div>
    
@@ -199,3 +200,9 @@
 </body>
 
 </html>
+<style>
+    /* CSS to change the font color of navbar links */
+    .navbar-nav .nav-link {
+        color: #fff; 
+    }
+  </style>

@@ -2,217 +2,222 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">    
-    <title>Heart Disease Predictor</title>  
-    <nav class="navbar navbar-expand-sm  bg-info navbar-dark">
-        <div class="container-fluid">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <!-- <a class="nav-link active" href="#">Active</a> -->
-            </li>
-            <li class="nav-item">
-                  <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url_for("charts") }}" class="btn btn-custom nav-link">&#128202 Charts</a>
-             
-            </li>
-            <li class="nav-item">
-              <a href="{{ url_for("predict") }}" class="btn btn-custom nav-link">🎯 predict</a>
-             
-            </li>
-            <li class="nav-item">
-                <a href="{{ url_for("thanks") }}" class="btn btn-custom nav-link">🙏 Thanks</a>
-               
-              </li>
-            
-          </ul>
-        </div>
-      </nav>
-    <div class="container" >
-        <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span>
-        <picture>
-          <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-        </picture>
-      </h2>
-        <div class='description'>
-           
-            <!-- <p>A Machine Learning Web Application that predicts chances of having heart Disease or not, Built with
-                Flask and Deployed using Heroku.</p> -->
-            <p>Note: This model is 85% accurate</p>
-            
-        </div>
+  <meta charset="UTF-8">
+  <title>Heart Disease Predictor</title>
+  <nav class="navbar navbar-expand-sm  bg-info navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <!-- <a class="nav-link active" href="#">Active</a> -->
+        </li>
+        <li class="nav-item">
+          <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for("charts") }}" class="btn btn-custom nav-link">&#128202 Charts</a>
+
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for("predict") }}" class="btn btn-custom nav-link">🎯 predict</a>
+
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for("thanks") }}" class="btn btn-custom nav-link">🙏 Thanks</a>
+
+        </li>
+
+      </ul>
     </div>
-    <script src=" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json" ></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </nav>
+  <div class="container" stle ="text-align:center">
+    <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span>
+      <picture>
+        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
+      </picture>
+    </h2>
+    <div class='description'>
+      <p>Note: This model is 85% accurate</p>
+    </div>
+  </div>
+  <script src=" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body style ="background-color:#cfe0ef">
-  					
- 
-
-    <div class="ml-container" >
-        <form action="{{ url_for('predict')}}" method="POST">
-            <div class="row">
-                <div class="col-md-6">
-                    <br>
-                    <label for="sex" >sex</label>
-                    <select id="sex" name="sex" >
-                      <option selected>----select option----</option>
-                      <option value="1">Male</option>
-                      <option value="0">Female</option>
-                  </select><br>
-                </div>
-                <div class="col-md-6">
-                  <br>
-                  <label for="age" >age</label>
-                  <input type="text" id="age" name="age" placeholder="A number in range">
-        
-              </div>
-            </div>	
-            <div class="row">
-              <div class="col-md-6">
-                <label for="education" >education</label>
-                <select id="education" name="education" >
-                  <option selected>----select option----</option>
-                  <option value="4">Bachelor's Degree</option>
-                  <option value="3">Bachelor's Degree </option>
-                  <option value="2">Some College or Vocational Certification</option>
-                  <option value="1"> High School Diploma or GED Equivalent</option>
-              </select><br>
-            </div>
-              <div class="col-md-6">
-                  <br>
-                  <label for="currentSmoker" >currentSmoker</label>
-                  <select id="currentSmoker" name="currentSmoker" >
-                    <option selected>----select option----</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select><br>
-              </div>
-              
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-                <br>
-                <label for="Smoker" >Smoker</label>
-                <select id="Smoker" name="Smoker" >
-                  <option selected>----select option----</option>
-                  <option value="1">Yes</option>
-                  <option value="0">No</option>
-              </select><br>
-            </div>
-            <div class="col-md-6">
-              <br>
-              <label for="Stroke" >Stroke</label>
-              <select id="Stroke" name="Stroke" >
-                <option selected>----select option----</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select><br>
-          </div>
+<body style="background-color:#cfe0ef">
+  <div class="ml-container">
+    <form action="{{ url_for('homepage')}}" method="POST">
+      <div class="row"> 
+        <div class="col-md-1">          
         </div>
-        <div class="row">
-          <div class="col-md-6">
-              <br>		
-              <label for="cigsPerDay" >cigsPerDay</label>
-              <input type="text" id="cigsPerDay" name="cigsPerDay" placeholder="A number in range"><br>
-          </div>
-          <div class="col-md-6">
-            <br>
-            <label for="BPMeds" >BPMeds</label>
-            <select id="BPMeds" name="BPMeds" >
-              <option selected>----select option----</option>
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select><br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-            <br>	
-            <label for="prevalentStroke" >prevalentStroke</label>
-            <select id="prevalentStroke" name="prevalentStroke" >
-              <option selected>----select option----</option>
-              <option value="1">Yes</option>
-              <option value="0">No</option>
+        <div class="col-md-5"><br>       
+          <label for="sex">sex</label>
+       
+          <select id="sex" name="sex">
+            <option selected>----select option----</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
           </select><br>
         </div>
         <div class="col-md-6">
           <br>
-          <label for="prevalentHyp" >prevalentHyp</label>
-          <select id="prevalentHyp" name="prevalentHyp" >
+          <label for="age">age</label>
+          <input type="text" id="age" name="age" placeholder="A number in range">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="education">education</label>
+          <select id="education" name="education">
+            <option selected>----select option----</option>
+            <option value="4">Bachelor's Degree</option>
+            <option value="3">Bachelor's Degree </option>
+            <option value="2">Some College or Vocational Certification</option>
+            <option value="1"> High School Diploma or GED Equivalent</option>
+          </select><br>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label for="currentSmoker">currentSmoker</label>
+          <select id="currentSmoker" name="currentSmoker">
             <option selected>----select option----</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
-        </select><br>
+          </select><br>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-          <br>	
-          <label for="diabetes" >diabetes</label>
-          <select id="diabetes" name="diabetes" >
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="Smoker">Smoker</label>
+          <select id="Smoker" name="Smoker">
             <option selected>----select option----</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
-        </select><br>
+          </select><br>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label for="Stroke">Stroke</label>
+          <select id="Stroke" name="Stroke">
+            <option selected>----select option----</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select><br>
+        </div>
       </div>
-      <div class="col-md-6">
-        <br>
-        <label for="totChol" >totChol</label>
-        <input type="text" id="totChol" name="totChol" placeholder="A number in range"><br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <br>		
-      <label for="sysBP" >sysBP</label>
-      <input type="text" id="sysBP" name="sysBP" placeholder="A number in range"><br>
-  </div>
-    <div class="col-md-6">
-        <br>
-        <label for="diaBP" >diaBP</label>
-        <input type="text" id="diaBP" name="diaBP" placeholder="A number in range ">
-    </div>
-    
-</div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="cigsPerDay">cigsPerDay</label>
+          <input type="text" id="cigsPerDay" name="cigsPerDay" placeholder="A number in range"><br>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label for="BPMeds">BPMeds</label>
+          <select id="BPMeds" name="BPMeds">
+            <option selected>----select option----</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="prevalentStroke">prevalentStroke</label>
+          <select id="prevalentStroke" name="prevalentStroke">
+            <option selected>----select option----</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select><br>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label for="prevalentHyp">prevalentHyp</label>
+          <select id="prevalentHyp" name="prevalentHyp">
+            <option selected>----select option----</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="diabetes">diabetes</label>
+          <select id="diabetes" name="diabetes">
+            <option selected>----select option----</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select><br>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label for="totChol">totChol</label>
+          <input type="text" id="totChol" name="totChol" placeholder="A number in range"><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="sysBP">sysBP</label>
+          <input type="text" id="sysBP" name="sysBP" placeholder="A number in range"><br>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label for="diaBP">diaBP</label>
+          <input type="text" id="diaBP" name="diaBP" placeholder="A number in range "><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="BMI">BMI</label>
+          <input type="text" id="BMI" name="BMI" placeholder="A number in range"><br>
+        </div>
+        <div class="col-md-6">
+          <label for="heartRate">heartRate</label>
+          <input type="text" id="heartRate" name="heartRate" placeholder="A number in range"><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">          
+        </div>
+        <div class="col-md-5"><br>
+          <label for="glucose">glucose</label>
+          <input type="text" id="glucose" name="glucose" placeholder="A number in range"><br>
+        </div>
+        <div class="col-md-5">
+          <input type="submit" class="btn btn-primary" value="Predict Heart Health">
+          </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                  
-                    <label for="BMI">BMI</label>
-                    <input type="text" id="BMI" name="BMI" placeholder="A number in range">
-                    		
-                </div>
-                <div class="col-md-6">
-                  
-                    <label for="heartRate">heartRate</label>
-                    <input type="text" id="heartRate" name="heartRate" placeholder="A number in range">
-        
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                  	
-                    <label for="glucose">glucose</label>
-                    <input type="text" id="glucose" name="glucose" placeholder="A number in range">
-        
-                </div>
-                
-            </div>
-          
-            
-            <input type="submit"  class="btn btn-primary" value="Predict Heart Health">
-        </form>
-    </div>
-   
-    <!-- <div class='footer' style ="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">       
-        <p class='footer-description'>Made by Group5</p>
-    </div> -->
+      </div>
+      
+    </form>
+  </div>
+
+  <div class='footer'
+    style="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">
+    <p class='footer-description'>Made by Group5</p>
+  </div>
 
 </body>
 
 </html>
+
+<style>
+  /* CSS to change the font color of navbar links */
+  .navbar-nav .nav-link {
+      color: #fff; 
+  }
+</style>
