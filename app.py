@@ -28,7 +28,9 @@ filename = 'Resources/heart-prediction-knn-model.pkl'
 model = pickle.load(open(filename, 'rb'))
  
 
-
+# Load the Random Forest CLassifier model
+filename2 = 'Resources/heart-disease-prediction-knn-model.pkl'
+model1 = pickle.load(open(filename2, 'rb'))
 
 
 #################################################
@@ -44,7 +46,37 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route("/")
 def homepage():
-    return flask.render_template("homepage.html")
+     if request.method == 'POST':
+													
+
+         sex = int(request.form['sex'])
+         age = request.form.get('age')
+         education = request.form.get('education')
+         currentSmoker = int(request.form['currentSmoker'])
+         cigsPerDay = int(request.form['cigsPerDay'])
+         BPMeds = request.form.get('BPMeds')
+         prevalentStroke = int(request.form['prevalentStroke'])
+         prevalentHyp = int(request.form['prevalentHyp'])
+         diabetes = request.form.get('diabetes')
+         totChol = float(request.form['totChol'])
+         sysBP = request.form.get('sysBP')
+         diaBP = int(request.form['diaBP'])
+         BMI = request.form.get('BMI')
+         heartRate = request.form.get('heartRate')
+         glucose = float(request.form['glucose'])
+        
+
+         data = np.array([[sex,age,education,currentSmoker,cigsPerDay,BPMeds,prevalentStroke,prevalentHyp,diabetes,totChol,sysBP,diaBP,BMI,heartRate,glucose]])
+         data_df = pd.DataFrame(data, columns=['sex','age','education','currentSmoker','cigsPerDay','BPMeds','prevalentStroke','prevalentHyp','diabetes','totChol','sysBP','diaBP','BMI','heartRate','glucose'])
+																		
+
+        #  print(data_df)
+        #  my_prediction = model1.predict(data_df)  
+         return flask.render_template("homepage.html")
+        #  return render_template('result.html', prediction=my_prediction)
+     else:
+         # Placeholder response for GET request
+       return flask.render_template("homepage.html")
     
 
 @app.route("/charts")
