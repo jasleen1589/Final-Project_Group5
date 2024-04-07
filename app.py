@@ -9,14 +9,6 @@ import flask_cors
 import numpy as np
 from requests import session
 
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func,literal_column
-from sqlalchemy import desc
-from sqlalchemy.sql.expression import case
-
-from flask import Flask, jsonify
 
 import pickle
 
@@ -29,7 +21,7 @@ model = pickle.load(open(filename, 'rb'))
  
 
 # Load the Random Forest CLassifier model
-filename2 = 'Resources/heart-disease-prediction-knn-model.pkl'
+filename2 = 'Resources/heart-logregression-knn-model.pkl'
 model1 = pickle.load(open(filename2, 'rb'))
 
 
@@ -44,7 +36,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 # Flask Routes
 #################################################
 
-@app.route("/")
+@app.route("/" , methods=['GET','POST'])
 def homepage():
      if request.method == 'POST':
 													
@@ -70,10 +62,10 @@ def homepage():
          data_df = pd.DataFrame(data, columns=['sex','age','education','currentSmoker','cigsPerDay','BPMeds','prevalentStroke','prevalentHyp','diabetes','totChol','sysBP','diaBP','BMI','heartRate','glucose'])
 																		
 
-        #  print(data_df)
-        #  my_prediction = model1.predict(data_df)  
-         return flask.render_template("homepage.html")
-        #  return render_template('result.html', prediction=my_prediction)
+         print(data_df)
+         my_prediction = model1.predict(data_df)  
+       
+         return render_template('result.html', prediction=my_prediction)
      else:
          # Placeholder response for GET request
        return flask.render_template("homepage.html")
@@ -116,7 +108,7 @@ def predict():
              
         return render_template('result.html', prediction=my_prediction)
     else:
-        # Placeholder response for GET request
+    #     # Placeholder response for GET request
         return render_template('predict.html')
 
 

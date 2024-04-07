@@ -1,5 +1,5 @@
 CREATE TABLE CHDIndicators (
-    male INT,
+    sex INT,
     age INT,
     education FLOAT,
     currentSmoker INT,
