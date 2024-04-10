@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src==" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json" ></script>
+		<script src=" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json" ></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 		<title>Heart Disease Predictor</title>
@@ -15,51 +15,55 @@
 				  <!-- <a class="nav-link active" href="#">Active</a> -->
 				</li>
 				<li class="nav-item">
-					  <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
-				</li>
-				<li class="nav-item">
-				  <a href="{{ url_for("charts") }}" class="btn btn-custom nav-link">&#128202 Charts</a>
-				 
-				</li>
-				<li class="nav-item">
-				  <a href="{{ url_for("predict") }}" class="btn btn-custom nav-link">🎯 predict</a>
-				 
-				</li>
-				<li class="nav-item">
-					<a href="{{ url_for("thanks") }}" class="btn btn-custom nav-link">🙏 Thanks</a>
-				   
+					<a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
 				  </li>
+				  <li class="nav-item">
+					<a href="{{ url_for('charts') }}" class="btn btn-custom nav-link">&#128202 Charts</a>
+		  
+				  </li>
+				  <li class="nav-item">
+					<a href="{{ url_for('predict') }}" class="btn btn-custom nav-link">🎯 Predict</a>
+		  
+				  </li>
+				
 				
 			  </ul>
 			</div>
 		  </nav>
 	</head>
 
-    <body style ="background-color:#cfe0ef"">
-
-        <!-- Website Title -->
-		<div class="container">
-            <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span></h2>
-           
-    	</div>
-
-		<!-- Result -->
-		<div class="results">
+    <body style ="background-color:#cfe0ef">
+		
+		<div class="results" style="text-align: center;">
 			{% if prediction==1 %}
-				<h1>Prediction: <span class='danger'>Oops! You have Chances of Heart Disease.</span></h1>
+				<h3 style ="color: red;">Prediction: <span style ="color:red;">You are at a Risk of Heart Disease</span></h3>
 				<picture>
 					<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f494/512.webp" type="image/webp">
-					<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f494/512.gif" alt="💔" width="32" height="32">
+					<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f494/512.gif" alt="💔" width="62" height="62">
 				  </picture>
 				  <div class ="row">
 					<table>
 						<tr>
-							<td width="200px"></td>
+							<td width ="50px"></td>
+							<td width="500px">
+								<h4>Maintaining overall health encompasses both physical and mental well-being</h4>
+   
+								<ul>
+									<li><strong>Balanced Lifestyle:</strong> Prioritize both physical and mental well-being.</li>
+									<li><strong>Regular Exercise:</strong> Incorporate regular physical activity, such as walking or household chores, for at least 20-30 minutes most days of the week.</li>
+									<li><strong>Conscious Diet:</strong> Make mindful dietary choices to support overall health and well-being.</li>
+									<li><strong>Engage in Passions:</strong> Dedicate time to activities that bring joy and fulfillment.</li>
+									<li><strong>Positive Environment:</strong> Surround oneself with positive influences and supportive relationships.</li>
+									<li><strong>Optimistic Outlook:</strong> Maintain a positive perspective, even in challenging situations, to foster mental and emotional resilience.</li>
+									<li><strong>Sustainable Practices:</strong> Integrate these habits into daily life for long-term health and wellness.</li>
+								</ul>
+	<p>These tips promote a healthier lifestyle and reduce the risk of heart disease. Even making one small change, like quitting smoking, can have a significant positive impact on heart health. Prioritize these habits to stay healthy!</p>
+							</td>
 							<td>
 					
-								<img src="static\Images\Cholesterol Levels.png" alt="Cholesterol Levels" width="400" height="400">
+								<img src="static\Images\Cholesterol Levels.png" alt="Cholesterol Levels" width="400" height="300">
 								<img src="static\Images\Resting Heart Rate Values.png" alt="Resting Heart Rate Values" width="400"
-									height="400">
+									height="300">
 					
 							</td>
 							<td>
@@ -73,24 +77,53 @@
 				  </div>
 				  
 			{% elif prediction==0 %}
-				<h1>Prediction: <span class='safe'>Great! You DON'T chances have Heart Disease.</span></h1>
-				<picture>
+				
+				<h2 style ="color: #0d6efd;">Prediction: <span style ="color: #0d6efd;">Great! You have reduced chances of developing Heart Disease<picture>
 					<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4aa/512.webp" type="image/webp">
-					<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4aa/512.gif" alt="💪" width="200" height="200">
-				  </picture>
+					<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4aa/512.gif" alt="💪" width="40" height="40">
+				  </picture></span></h2>
+				  <div class ="row">
+					<table>
+						<tr>
+							<td width ="50px"></td>
+							<td  width="500" height="400">
+								<h4>9 Tips for a Healthy Heart</h4>
+   
+    <ul>
+        <li><strong>Don't smoke:</strong> Tobacco narrows the arteries and damages blood vessel walls, leading to heart disease.</li>
+        <li><strong>Exercise for heart health:</strong> Incorporate movement into daily activities and make exercise enjoyable.</li>
+        <li><strong>Eat heart healthy foods:</strong> Prioritize real, unprocessed foods like fruits and vegetables.</li>
+        <li><strong>Develop ways to overcome stress:</strong> Practice stress-reducing activities such as meditation or hobbies.</li>
+        <li><strong>Maintain a healthy weight:</strong> Aim for a weight reduction of 5–10% to improve overall health.</li>
+        <li><strong>Don't drink excessively:</strong> Limit alcohol consumption to reduce the risk of heart disease.</li>
+        <li><strong>Monitor your numbers:</strong> Regularly check blood pressure and cholesterol levels.</li>
+        <li><strong>Take a risk assessment:</strong> Identify your risk factors and empower yourself to make positive changes.</li>
+        <li><strong>Get enough sleep:</strong> Ensure 6–9 hours of restful sleep to recharge your body and reduce stress.</li>
+	</ul>
+	<p>These tips promote a healthier lifestyle and reduce the risk of heart disease. Even making one small change, like quitting smoking, can have a significant positive impact on heart health. Prioritize these habits to stay healthy!</p>
+							</td>
+							<td >
+					
+								<img src="static\Images\healthy1.png" alt="Cholesterol Levels" width="400" height="400">
+								<img src="static\Images\healthy2.png" alt="Resting Heart Rate Values" width="400"
+									height="400">
+					
+							</td>
+							
+						</tr>
+					</table>
+					
+						</div>
 			{% endif %}
 		</div>
 
 		<!-- Footer -->
        
    <div class='footer'
-    style="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">
-    <p class='footer-description'>Made by Group5</p>
+    style="position: fixed; left: 0; bottom: 0; width: 100%;background-color:#2d3b45;;color: white; text-align: center;">
+    <p class='footer-description'>Made By Group5</p>
   </div> 
-	   <div class='footer' style ="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">       
-        <p class='footer-description'>Made by Group5</p>
-    </div>
-
+	 
 	</body>
 </html>
 <style>

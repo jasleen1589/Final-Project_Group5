@@ -8,23 +8,12 @@ from flask_cors import CORS
 import flask_cors
 import numpy as np
 from requests import session
-
-
+from joblib import load
 import pickle
 
 
-
-
-# Load the Random Forest CLassifier model
-filename = 'Resources/heart-prediction-knn-model.pkl'
-model = pickle.load(open(filename, 'rb'))
- 
-
-# Load the Random Forest CLassifier model
-filename2 = 'Resources/heart-logregression-knn-model.pkl'
-model1 = pickle.load(open(filename2, 'rb'))
-
-
+# Load the model
+model3 = load('Resources/heart-randomForest1-knn-model.pkl')
 #################################################
 # Flask Setup
 #################################################
@@ -36,11 +25,18 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 # Flask Routes
 #################################################
 
-@app.route("/" , methods=['GET','POST'])
-def homepage():
-     if request.method == 'POST':
-													
+@app.route("/" )
+def homepage():    
+     return flask.render_template('homepage.html')
+    
 
+@app.route("/charts")
+def charts():
+     return flask.render_template("charts.html")
+  
+@app.route('/predict', methods=['GET','POST'])
+def predict():
+    if request.method == 'POST':												
          sex = int(request.form['sex'])
          age = request.form.get('age')
          education = request.form.get('education')
@@ -63,54 +59,13 @@ def homepage():
 																		
 
          print(data_df)
-         my_prediction = model1.predict(data_df)  
+         my_prediction = model3.predict(data_df)  
        
          return render_template('result.html', prediction=my_prediction)
-     else:
-         # Placeholder response for GET request
-       return flask.render_template("homepage.html")
-    
-
-@app.route("/charts")
-def charts():
-     return flask.render_template("charts.html")
-    
-@app.route("/thanks")
-def thanks():
-     return flask.render_template("thanks.html")
-    
-
-
-@app.route('/predict', methods=['GET','POST'])
-
-def predict():
-    if request.method == 'POST':
-
-        age = int(request.form['age'])
-        sex = request.form.get('sex')
-        chestpain = request.form.get('cp')
-        restbp = int(request.form['trestbps'])
-        chol = int(request.form['chol'])
-        fbs = request.form.get('fbs')
-        restecg = int(request.form['restecg'])
-        maxhr = int(request.form['thalach'])
-        exang = request.form.get('exang')
-        oldpeak = float(request.form['oldpeak'])
-        slope = request.form.get('slope')
-        ca = int(request.form['ca'])
-        thal = request.form.get('thal')
-        
-        data = np.array([[age,sex,chestpain,restbp,chol,fbs,restecg,maxhr,exang,oldpeak,slope,ca,thal]])
-        data_df = pd.DataFrame(data, columns=['age', 'sex', 'chestpain', 'restbp', 'chol', 'fbs', 'restecg', 'maxhr', 'exang', 'oldpeak', 'slope', 'ca', 'thal'])
-
-        print(data_df)
-        my_prediction = model.predict(data_df)  
-             
-        return render_template('result.html', prediction=my_prediction)
     else:
-    #     # Placeholder response for GET request
-        return render_template('predict.html')
-
+         # Placeholder response for GET request
+       return flask.render_template("predict.html")
+    
 
     
 

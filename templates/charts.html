@@ -13,79 +13,82 @@
               <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
         </li>
         <li class="nav-item">
-          <a href="{{ url_for("charts") }}" class="btn btn-custom nav-link">&#128202 Charts</a>
+          <a href='{{ url_for("charts") }}' class="btn btn-custom nav-link">&#128202 Charts</a>
          
         </li>
         <li class="nav-item">
-          <a href="{{ url_for("predict") }}" class="btn btn-custom nav-link">🎯 predict</a>
-         
-        </li>
-        <li class="nav-item">
-            <a href="{{ url_for("thanks") }}" class="btn btn-custom nav-link">🙏 Thanks</a>
-           
-          </li>
-        
+          <a href='{{ url_for("predict") }}' class="btn btn-custom nav-link">🎯 Predict</a>         
+        </li>       
       </ul>
     </div>
   </nav>
 </head>
 
   <body style ="background-color:#cfe0ef">
-    <div class ="row">
+    <!-- <div class ="row">
     
-      <div style ="text-align: center;"">
+      <div style ="text-align: center">
         <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/FinalGroupProject_04102024/HeartHealthDashboard')">
-          <picture>
-            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-          </picture>
+         
             <label>Heart Health Dashboard</label>
           </a>
         </div>
     </div>
     <div class ="row">
     
-      <div style ="text-align: center;"">
+      <div style ="text-align: center">
         <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/MaxHeartRatebyMedianAgeGroups/Sheet3?publish=yes')">
-          <picture>
-            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-          </picture>
+          
             <label>Maximum Heart Rate by Median Age Groups</label>
           </a>
         </div>
     </div>
-    <div class ="row" style ="text-align: center;"">
+    <div class ="row" style ="text-align: center">
         <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/Story_AverageRestingHeart_04102024/Story_AverageRestingHeartRate')">
-            <picture>
-              <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-              <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-            </picture>
+          
               <label>Average Resting Heart Rate</label>
           </a>
     </div>
-    <div class ="row" style ="text-align: center;"">
+    <div class ="row" style ="text-align: center;">
       <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/AgeVs_RestBP_04102024/Agevs_AvgRestBP')">
-        <picture>
-          <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-        </picture>
+     
           <label>Age vs. Avg Rest BP</label>
       </a>
       </div>
-      <div class ="row" style ="text-align: center;"">
+      <div class ="row" style ="text-align: center;">
         <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/Cholesterol_04102024/Cholesterolvs_AgeSex')">
-          <picture>
-            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-          </picture>
+          
             <label>Cholesterol vs. Age/Sex</label>
           </a>
           
-      </div>
+      </div> -->
      
-    <div class='footer' style ="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">       
-        <p class='footer-description'>Made by Group5</p>
+      <div>
+        <table>
+          <tr>
+            <td width ="250">
+
+          </td>
+            <td>
+              <h3>Story</h3>
+              <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/FinalGroupProject_04102024/HeartHealthDashboard')">
+                <img src="static\Images\graph.jpg" alt="charts" width="400" height="300">
+            </a>
+            </td>
+            <td width ="50">
+
+            </td>
+            <td>
+              <h3>Dashboard</h3>
+              <a href="#" onclick="openTableauPopup('https://public.tableau.com/app/profile/jasleen.kaur8030/viz/FinalGroupProject_04102024/HeartHealthDashboard')">
+                <img src="static\Images\graph3.jpg" alt="charts" width="400" height="300">
+            </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <div class='footer' style ="position: fixed; left: 0; bottom: 0; width: 100%;background-color:#2d3b45;;color: white; text-align: center;">       
+        <p class='footer-description'>Made By Group5</p>
     </div>
 
   </body>

@@ -2,207 +2,270 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">    
-    <title>Heart Disease Predictor</title>  
-    <nav class="navbar navbar-expand-sm  bg-info navbar-dark">
-        <div class="container-fluid">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <!-- <a class="nav-link active" href="#">Active</a> -->
-            </li>
-            <li class="nav-item">
-                  <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url_for("charts") }}" class="btn btn-custom nav-link">&#128202 Charts</a>
-             
-            </li>
-            <li class="nav-item">
-              <a href="{{ url_for("predict") }}" class="btn btn-custom nav-link">🎯 predict</a>
-             
-            </li>
-            <li class="nav-item">
-                <a href="{{ url_for("thanks") }}" class="btn btn-custom nav-link">🙏 Thanks</a>
-               
-              </li>
-            
-          </ul>
-        </div>
-      </nav>
-    <div class="container" >
-        <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span></h2>
-        <div class='description'>
-            <picture>
-                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="90" height="90">
-              </picture>
-            <!-- <p>A Machine Learning Web Application that predicts chances of having heart Disease or not, Built with
-                Flask and Deployed using Heroku.</p> -->
-            <p>Note: This model is 85% accurate</p>
-            
-        </div>
+  <meta charset="UTF-8">
+  <title>Heart Disease Predictor</title>
+  <nav class="navbar navbar-expand-sm  bg-info navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <!-- <a class="nav-link active" href="#">Active</a> -->
+        </li>
+        <li class="nav-item">
+          <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for('charts') }}" class="btn btn-custom nav-link">&#128202 Charts</a>
+
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for('predict') }}" class="btn btn-custom nav-link">🎯 Predict</a>
+
+        </li>
+      
+
+      </ul>
     </div>
-    <script src==" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json" ></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </nav>
+  <div class="container" style="text-align:center">
+    <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span>
+      <picture>
+        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
+      </picture>
+    </h2> 
+  </div>
+  <script src=" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* CSS to change the font color of navbar links */
+    .navbar-nav .nav-link {
+      color: #fff;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+
 </head>
+<br>
+<body style="background-color:#cfe0ef">
+  <form id="myForm" method="POST" action="{{ url_for('predict')}}">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <label class="col-md-2" for="sex">Gender</label>
+      <select class="col-md-2" id="sex" name="sex" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+      <div class="col-md-1">
+      </div>
+      <label class="col-md-2" for="age">Age</label>
 
-<body style ="background-color:#cfe0ef">
+      <input class="col-md-2" type="text" id="age" name="age" placeholder="A number in range" required>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="education">Education</label>
+      <select class="col-md-2" id="education" name="education" required>
+        <option value="">----Select Option----</option>
+        <option value="4">Bachelor's Degree</option>
+        <option value="3">Bachelor's Degree </option>
+        <option value="2">Some College or Vocational Certification</option>
+        <option value="1"> High School Diploma or GED Equivalent</option>
+      </select>
+      <div class="col-md-1">
+      </div>
+      <label class="col-md-2" for="currentSmoker">Current Smoker</label>
+      <select class="col-md-2" id="currentSmoker" name="currentSmoker" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <label class="col-md-2" for="Smoker">Smoker</label>
+      <select class="col-md-2" id="Smoker" name="Smoker" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="Stroke">Stroke</label>
+      <select class="col-md-2" id="Stroke" name="Stroke" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="cigsPerDay">Cigs Per Day</label>
+      <input class="col-md-2" type="text" id="cigsPerDay" name="cigsPerDay" placeholder="A number in range"
+        required><br>
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="BPMeds">BP Meds</label>
+      <select class="col-md-2" id="BPMeds" name="BPMeds" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="prevalentStroke">Prevalent Stroke</label>
+      <select class="col-md-2" id="prevalentStroke" name="prevalentStroke" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="prevalentHyp">Prevalent Hypertension</label>
+      <select class="col-md-2" id="prevalentHyp" name="prevalentHyp" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="diabetes">Diabetes</label>
+      <select class="col-md-2" id="diabetes" name="diabetes" required>
+        <option value="">----Select Option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="totChol">Total Cholestrol</label>
+      <input class="col-md-2" type="text" id="totChol" name="totChol" placeholder="A number in range" required>
+
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="sysBP">Systolic Blood Pressure</label>
+      <input class="col-md-2" type="text" id="sysBP" name="sysBP" placeholder="A number in range" required>
+      <div class="col-md-1">
+      </div>
+      <label class="col-md-2" for="diaBP">Diastolic Blood Pressure</label>
+      <input class="col-md-2" type="text" id="diaBP" name="diaBP" placeholder="A number in range " required>
+
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="BMI">BMI</label>
+      <input class="col-md-2" type="text" id="BMI" name="BMI" placeholder="A number in range" required>
+      <div class="col-md-1">
+      </div>
+      <label class="col-md-2" for="heartRate">Heart Rate</label>
+      <input class="col-md-2" type="text" id="heartRate" name="heartRate" placeholder="A number in range" required>
+
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+      <label class="col-md-2" for="glucose">Glucose</label>
+      <input class="col-md-2" type="text" id="glucose" name="glucose" placeholder="A number in range" required><br>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+        <input type="submit" class="btn btn-primary" value="Predict Heart Health">
+      </div>
+
+    </div>
+    <div id="errorContainer" class="error"></div>
+  </form>
+
+ 
+   <div class='footer'
+    style="position: fixed; left: 0; bottom: 0; width: 100%;background-color:#2d3b45;;color: white; text-align: center;">
+    <p class='footer-description'>Made By Group5</p>
+  </div> 
+  <script>
+    /*
+    function validateForm() {
+      
+      var sex = document.getElementById('sex').value;
+        var age = document.getElementById('age').value.trim();
+        var education = document.getElementById('education').value;
+        var currentSmoker = document.getElementById('currentSmoker').value;
+        var cigsPerDay = document.getElementById('cigsPerDay').value.trim();
+        var BPMeds = document.getElementById('BPMeds').value;
+        var prevalentStroke = document.getElementById('prevalentStroke').value;
+        var prevalentHyp = document.getElementById('prevalentHyp').value;
+        var diabetes = document.getElementById('diabetes').value;
+        var totChol = document.getElementById('totChol').value.trim();
+        var sysBP = document.getElementById('sysBP').value.trim();
+        var diaBP = document.getElementById('diaBP').value.trim();
+        var BMI = document.getElementById('BMI').value.trim();
+        var heartRate = document.getElementById('heartRate').value.trim();
+        var glucose = document.getElementById('glucose').value.trim();
   
-
-    <div class="ml-container" >
-        <form action="{{ url_for('predict')}}" method="POST">
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-                    <label for="age" >Age</label>
-                    <input type="text" id="age" name="age"  placeholder="Your age.."><br>
-                </div>
-                <div class="col-md-6">
-                    <label for="sex" >Sex</label>
-                    <select id="sex" name="sex" >
-                        <option selected>----select option----</option>
-                        <option value="1">Male</option>
-                        <option value="0">Female</option>
-                    </select><br>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-            <label for="cp">Chest Pain Type</label>
-            <select id="cp" name="cp">
-                <option selected>----select option----</option>
-                <option value="0">Typical Angina</option>
-                <option value="1">Atypical Angina</option>
-                <option value="2">Non-anginal Pain</option>
-                <option value="3">Asymptomatic</option>
-            </select><br>
-                </div>
-                <div class="col-md-6">
-                    <label for="trestbps">Resting Blood Pressure</label>
-                    <input type="text" id="trestbps" name="trestbps" placeholder="A number in range [94-200] mmHg"><br>
+        var errors = [];
         
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-                    <label for="chol">Serum Cholesterol</label>
-                    <input type="text" id="chol" name="chol" placeholder="A number in range [126-564] mg/dl">
-        
-                </div>
-                <div class="col-md-6">
-                    
-            <label for="fbs">Fasting Blood Sugar</label>
-            <select id="fbs" name="fbs">
-                <option selected>----select option----</option>
-                <option value="1">Greater than 120 mg/dl</option>
-                <option value="0">Less than 120 mg/dl</option>
-            </select>
-        
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-                    <label for="restecg">Resting ECG Results</label>
-                    <select id="restecg" name="restecg">
-                        <option selected>----select option----</option>
-                        <option value="0">Normal</option>
-                        <option value="1">Having ST-T wave abnormality</option>
-                        <option value="2">Probable or definite left ventricular hypertrophy</option>
-                    </select>
-        
-                </div>
-                <div class="col-md-6">
-                    
-                    <label for="thalach">Max Heart Rate </label>
-                    <input type="text" id="thalach" name="thalach" placeholder="A number in range [71-202] bpm">
-        
-        
-                </div>
-            </div>
-          
-           
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-                    <label for="exang">Exercise-induced Angina</label>
-                    <select id="exang" name="exang">
-                        <option selected>----select option----</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select><br>
-        
-                </div>
-                <div class="col-md-6">
-                    <label for="oldpeak">ST depression</label>
-            <input type="text" id="oldpeak" name="oldpeak" placeholder="ST depression, typically in [0-6.2]"><br>
-        
-        
-                </div>
-            </div>
-          
-
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-                    <label for="slope">slope of the peak exercise ST segment</label>
-                    <select id="slope" name="slope">
-                        <option selected>----select option----</option>
-                        <option value="0">Upsloping</option>
-                        <option value="1">Flat</option>
-                        <option value="2">Downsloping</option>
-                    </select><br>
-        
-                </div>
-                <div class="col-md-6">
-                    <label for="ca">Number of Major vessels</label>
-                    <input type="text" id="ca" name="ca" placeholder="Typically in [0-4]"><br>
-        
-        
-                </div>
-            </div>
-            
-
-            <div class="row">
-                <div class="col-mod-1"></div>               
-                <div class="col-md-5">
-                    <br>
-                   
-                    <label for="thal">Thalassemia</label>
-            <select id="thal" name="thal">
-                <option selected>----select option----</option>
-                <option value="0">Normal</option>
-                <option value="1">Fixed Defect</option>
-                <option value="2">Reversible Defect</option>
-            </select><br>
-                </div>
-                <div class="col-md-6">
-                    <input type="submit"  class="btn btn-primary" value="Predict">
-                </div>
-            </div>
-        </form>
-    </div>
-   
-    <div class='footer' style ="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">       
-        <p class='footer-description'>Made by Group5</p>
-    </div>
+        if (sex === '' || age === '' || education === '' || currentSmoker === '' || cigsPerDay === '' || BPMeds === '' || prevalentStroke === '' || prevalentHyp === '' || diabetes === '' || totChol === '' || sysBP === '' || diaBP === '' || BMI === '' || heartRate === '' || glucose === '') {
+        errors.push('All required fields must be filled');
+        console.log(errors);
+        if (errors.length > 0) {
+            //event.preventDefault(); // Prevent form submission
+            displayErrors(errors);
+            return false;
+        }
+    }
+  }
+  
+    function displayErrors(errors) {
+      var errorContainer = document.getElementById('errorContainer');
+      errorContainer.innerHTML = ''; // Clear previous errors
+  
+      var ul = document.createElement('ul');
+      errors.forEach(function(error) {
+          var li = document.createElement('li');
+          li.textContent = error;
+          ul.appendChild(li);
+      });
+  
+      errorContainer.appendChild(ul);
+  }
+  */
+  </script>
 
 </body>
 
 </html>
-<style>
-    /* CSS to change the font color of navbar links */
-    .navbar-nav .nav-link {
-        color: #fff; 
-    }
-  </style>
