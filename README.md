@@ -1,4 +1,4 @@
-# Final-Project_Group5## Cardiovascular Disease Risk Prediction
+## Cardiovascular Disease Risk Prediction
 
 ### Overview
 Cardiovascular disease (CVD) poses a significant global health threat, encompassing conditions such as heart disease and stroke. The Framingham Heart Study provides valuable data for understanding CVD risk factors. This project aims to develop a classification model predicting the 10-year risk of Coronary Heart Disease (CHD) based on individual characteristics.
