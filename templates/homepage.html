@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Heart Disease Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <nav class="navbar navbar-expand-sm  bg-info navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
@@ -11,267 +10,72 @@
           <!-- <a class="nav-link active" href="#">Active</a> -->
         </li>
         <li class="nav-item">
-          <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
+              <a href="/" class="btn btn-custom nav-link">&#127968 Home</a>
         </li>
         <li class="nav-item">
-          <a href="{{ url_for('charts') }}" class="btn btn-custom nav-link">&#128202 Charts</a>
-
+          <a href="{{ url_for("charts") }}" class="btn btn-custom nav-link">&#128202 Charts</a>
+         
         </li>
         <li class="nav-item">
-          <a href="{{ url_for('predict') }}" class="btn btn-custom nav-link">🎯 predict</a>
-
-        </li>
-        <li class="nav-item">
-          <a href="{{ url_for('thanks') }}" class="btn btn-custom nav-link">🙏 Thanks</a>
-
-        </li>
-
+          <a href="{{ url_for("predict") }}" class="btn btn-custom nav-link">🎯 Predict</a>
+         
+        </li>      
+        
       </ul>
     </div>
   </nav>
-  <div class="container" style="text-align:center">
-    <h2 class='container-heading'><span class="heading_font">Heart Disease Predictor</span>
-      <picture>
-        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
-        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
-      </picture>
-    </h2>
-    <div class='description'>
-      <p>Note: This model is 85% accurate</p>
-    </div>
+  <div>
+    <h1>Heart & Vascular Health <picture>
+      <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.webp" type="image/webp">
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/512.gif" alt="🫀" width="30" height="30">
+    </picture></h1>
+    
   </div>
-  <script src=" https://fonts.gstatic.com/s/e/notoemoji/latest/1fac0/lottie.json"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+  <body style ="background-color:#cfe0ef">
+    <div>
+      <table>
+        <tr height="200">
+          <td width="60%" height="200">
+            <h3>
+              Health has never been so important
+            </h3>
+            <p>
+              How can you keep your heart healthy? — This is a question many of us ask ourselves, especially if heart disease runs in your family, as it does in mine. According to the CDC, heart disease is the leading cause of death for both men and women. Every year roughly 735,000 Americans have a heart attack. Although there are risk factors that you cannot control such as age, sex, or family history, you do not have to accept heart disease as your fate. By adopting a healthy lifestyle today you can avoid potential heart disease in the future. Here’s a list of habits that you can, and should, incorporate or change in your life for optimal heart health and well-being.
+            </p>
+          </td>
+          <td width="40%" height="200" align="center">
+            <img src="static\Images\hme1.webp" alt="Cholesterol Levels" width="400" height="300">
+          </td>
+        </tr>
+        <tr>
+          <td width="40%" height="200"   align="center" >
+            <img src="static\Images\hme2.jpg" alt="Cholesterol Levels" width="400" height="300">
+          </td>
+          <td width="60%" height="300">
+            <h3>
+              Prioritize Heart Health: The Importance of Regular Screening
+            </h3>
+            <p>
+             
+Checking for heart health is crucial for maintaining overall well-being and longevity. The heart is the powerhouse of our body, tirelessly pumping blood to every organ and tissue, supplying essential nutrients and oxygen. Regular screenings can detect early signs of cardiovascular issues like high blood pressure, cholesterol levels, or irregular heart rhythms, allowing for timely interventions to prevent more severe conditions such as heart disease or stroke. By prioritizing heart health, individuals can adopt healthier lifestyles, including balanced diets, regular exercise, and stress management techniques, ultimately promoting a better quality of life and reducing the risk of cardiovascular-related complications. Regular check-ups serve as proactive measures, empowering individuals to take control of their heart health and make informed decisions to safeguard their vitality.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class='footer' style ="position: fixed; left: 0; bottom: 0; width: 100%;background-color:#2d3b45;;color: white; text-align: center;">       
+        <p class='footer-description'>Made By Group5</p>
+    </div>
+
+  </body>
+  </html>
+  
   <style>
     /* CSS to change the font color of navbar links */
     .navbar-nav .nav-link {
-      color: #fff;
-    }
-
-    .error {
-      color: red;
+        color: #fff; 
     }
   </style>
-
-</head>
-
-<body style="background-color:#cfe0ef">
-  <form id="myForm" method="POST" action="{{ url_for('homepage')}}">
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-      <label class="col-md-2" for="sex">Gender</label>
-      <select class="col-md-2" id="sex" name="sex" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Male</option>
-        <option value="0">Female</option>
-      </select>
-      <div class="col-md-1">
-      </div>
-      <label class="col-md-2" for="age">Age</label>
-
-      <input class="col-md-2" type="text" id="age" name="age" placeholder="A number in range" required>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="education">Education</label>
-      <select class="col-md-2" id="education" name="education" required>
-        <option value="">----Select Option----</option>
-        <option value="4">Bachelor's Degree</option>
-        <option value="3">Bachelor's Degree </option>
-        <option value="2">Some College or Vocational Certification</option>
-        <option value="1"> High School Diploma or GED Equivalent</option>
-      </select>
-      <div class="col-md-1">
-      </div>
-      <label class="col-md-2" for="currentSmoker">Current Smoker</label>
-      <select class="col-md-2" id="currentSmoker" name="currentSmoker" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-    </div>
-
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-      <label class="col-md-2" for="Smoker">Smoker</label>
-      <select class="col-md-2" id="Smoker" name="Smoker" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="Stroke">Stroke</label>
-      <select class="col-md-2" id="Stroke" name="Stroke" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="cigsPerDay">Cigs Per Day</label>
-      <input class="col-md-2" type="text" id="cigsPerDay" name="cigsPerDay" placeholder="A number in range"
-        required><br>
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="BPMeds">BP Meds</label>
-      <select class="col-md-2" id="BPMeds" name="BPMeds" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="prevalentStroke">Prevalent Stroke</label>
-      <select class="col-md-2" id="prevalentStroke" name="prevalentStroke" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="prevalentHyp">Prevalent Hyp</label>
-      <select class="col-md-2" id="prevalentHyp" name="prevalentHyp" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="diabetes">Diabetes</label>
-      <select class="col-md-2" id="diabetes" name="diabetes" required>
-        <option value="">----Select Option----</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="totChol">Total Cholestrol</label>
-      <input class="col-md-2" type="text" id="totChol" name="totChol" placeholder="A number in range" required>
-
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="sysBP">Sys BP</label>
-      <input class="col-md-2" type="text" id="sysBP" name="sysBP" placeholder="A number in range" required>
-      <div class="col-md-1">
-      </div>
-      <label class="col-md-2" for="diaBP">Dia BP</label>
-      <input class="col-md-2" type="text" id="diaBP" name="diaBP" placeholder="A number in range " required>
-
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="BMI">BMI</label>
-      <input class="col-md-2" type="text" id="BMI" name="BMI" placeholder="A number in range" required>
-      <div class="col-md-1">
-      </div>
-      <label class="col-md-2" for="heartRate">Heart Rate</label>
-      <input class="col-md-2" type="text" id="heartRate" name="heartRate" placeholder="A number in range" required>
-
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <label class="col-md-2" for="glucose">Glucose</label>
-      <input class="col-md-2" type="text" id="glucose" name="glucose" placeholder="A number in range" required><br>
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-5">
-        <input type="submit" class="btn btn-primary" value="Predict Heart Health">
-      </div>
-
-    </div>
-    <div id="errorContainer" class="error"></div>
-  </form>
-
- 
-   <div class='footer'
-    style="position: fixed; left: 0; bottom: 0; width: 100%;background-color:gray;color: white; text-align: center;">
-    <p class='footer-description'>Made by Group5</p>
-  </div> 
-  <script>
-    /*
-    function validateForm() {
-      
-      var sex = document.getElementById('sex').value;
-        var age = document.getElementById('age').value.trim();
-        var education = document.getElementById('education').value;
-        var currentSmoker = document.getElementById('currentSmoker').value;
-        var cigsPerDay = document.getElementById('cigsPerDay').value.trim();
-        var BPMeds = document.getElementById('BPMeds').value;
-        var prevalentStroke = document.getElementById('prevalentStroke').value;
-        var prevalentHyp = document.getElementById('prevalentHyp').value;
-        var diabetes = document.getElementById('diabetes').value;
-        var totChol = document.getElementById('totChol').value.trim();
-        var sysBP = document.getElementById('sysBP').value.trim();
-        var diaBP = document.getElementById('diaBP').value.trim();
-        var BMI = document.getElementById('BMI').value.trim();
-        var heartRate = document.getElementById('heartRate').value.trim();
-        var glucose = document.getElementById('glucose').value.trim();
-  
-        var errors = [];
-        
-        if (sex === '' || age === '' || education === '' || currentSmoker === '' || cigsPerDay === '' || BPMeds === '' || prevalentStroke === '' || prevalentHyp === '' || diabetes === '' || totChol === '' || sysBP === '' || diaBP === '' || BMI === '' || heartRate === '' || glucose === '') {
-        errors.push('All required fields must be filled');
-        console.log(errors);
-        if (errors.length > 0) {
-            //event.preventDefault(); // Prevent form submission
-            displayErrors(errors);
-            return false;
-        }
-    }
-  }
-  
-    function displayErrors(errors) {
-      var errorContainer = document.getElementById('errorContainer');
-      errorContainer.innerHTML = ''; // Clear previous errors
-  
-      var ul = document.createElement('ul');
-      errors.forEach(function(error) {
-          var li = document.createElement('li');
-          li.textContent = error;
-          ul.appendChild(li);
-      });
-  
-      errorContainer.appendChild(ul);
-  }
-  */
-  </script>
-
-</body>
-
-</html>
